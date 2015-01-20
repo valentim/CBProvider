@@ -1,0 +1,15 @@
+cricket_brasil_site_homepage:
+    path:     /
+    defaults: { _controller: CricketBrasilSiteBundle:Default:index }
+
+cricket_brasil_site_provider:
+    resource:    "@CricketBrasilSiteBundle/Controller/ProviderController.php"
+    type: annotation
+
+cricket_brasil_site_job:
+    resource:    "@CricketBrasilSiteBundle/Controller/JobController.php"
+    type: annotation
+
+cricket_brasil_site_cliente:
+    resource:    "@CricketBrasilSiteBundle/Controller/CustomerController.php"
+    type: annotation

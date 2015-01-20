@@ -1,0 +1,65 @@
+<?php
+
+namespace CricketBrasil\SiteBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Score
+ *
+ * @ORM\Table(name="score", indexes={@ORM\Index(name="fk_score_provider1_idx", columns={"provider_id"})})
+ * @ORM\Entity
+ */
+class Score
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="count", type="smallint", nullable=false)
+     */
+    private $count;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="score", type="smallint", nullable=false)
+     */
+    private $score;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="updated_at", type="datetime", nullable=true)
+     */
+    private $updatedAt;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="created_at", type="datetime", nullable=false)
+     */
+    private $createdAt;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $id;
+
+    /**
+     * @var \CricketBrasil\SiteBundle\Entity\Provider
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="CricketBrasil\SiteBundle\Entity\Provider")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="provider_id", referencedColumnName="id")
+     * })
+     */
+    private $provider;
+
+
+}

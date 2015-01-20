@@ -1,0 +1,53 @@
+<?php
+
+namespace CricketBrasil\SiteBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Customer
+ *
+ * @ORM\Table(name="customer")
+ * @ORM\Entity
+ */
+class Customer
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="uid", type="string", length=40, nullable=false)
+     */
+    private $uid;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=150, nullable=false)
+     */
+    private $name;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="updated_at", type="datetime", nullable=true)
+     */
+    private $updatedAt;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="created_at", type="datetime", nullable=false)
+     */
+    private $createdAt;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+
+}

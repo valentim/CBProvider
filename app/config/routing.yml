@@ -1,0 +1,3 @@
+cricket_brasil_site:
+    resource: "@CricketBrasilSiteBundle/Resources/config/routing.yml"
+    prefix:   /

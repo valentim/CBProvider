@@ -1,0 +1,11 @@
+{# src/CricketBrasil/SiteBundle/Resources/views/layout.html.twig #}
+
+{% extends 'CricketBrasilSiteBundle::layout.html.twig' %}
+<h1>Jobs para classificar</h1>
+{% block body %}
+    <ul>
+        {% for jobs in job %}
+            <li>{{ job.provider.name|capitalize }} | {{ job.customer.name|capitalize }} - {{ job.description[10:] }}... </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

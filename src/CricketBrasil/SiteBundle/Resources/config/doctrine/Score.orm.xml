@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="CricketBrasil\SiteBundle\Entity\Score" table="score">
+    <indexes>
+      <index name="fk_score_provider1_idx" columns="provider_id"/>
+    </indexes>
+    <id name="id" type="integer" column="id"/>
+    <id name="provider" association-key="true"/>
+    <field name="count" type="smallint" column="count" nullable="false"/>
+    <field name="score" type="smallint" column="score" nullable="false"/>
+    <field name="updatedAt" type="datetime" column="updated_at" nullable="true"/>
+    <field name="createdAt" type="datetime" column="created_at" nullable="false"/>
+    <one-to-one field="provider" target-entity="Provider">
+      <join-columns>
+        <join-column name="provider_id" referenced-column-name="id"/>
+      </join-columns>
+    </one-to-one>
+  </entity>
+</doctrine-mapping>

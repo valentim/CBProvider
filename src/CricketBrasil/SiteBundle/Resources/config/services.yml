@@ -1,0 +1,4 @@
+services:
+#    cricket_brasil_site.example:
+#        class: CricketBrasil\SiteBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

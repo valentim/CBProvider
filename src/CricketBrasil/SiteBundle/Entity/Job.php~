@@ -1,0 +1,77 @@
+<?php
+
+namespace CricketBrasil\SiteBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Job
+ *
+ * @ORM\Table(name="job", indexes={@ORM\Index(name="fk_job_customer1_idx", columns={"customer_id"})})
+ * @ORM\Entity
+ */
+class Job
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="uid", type="string", length=40, nullable=false)
+     */
+    private $uid;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text", length=65535, nullable=true)
+     */
+    private $description;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="updated_at", type="datetime", nullable=true)
+     */
+    private $updatedAt;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="created_at", type="datetime", nullable=false)
+     */
+    private $createdAt;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \CricketBrasil\SiteBundle\Entity\Customer
+     *
+     * @ORM\ManyToOne(targetEntity="CricketBrasil\SiteBundle\Entity\Customer")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="customer_id", referencedColumnName="id")
+     * })
+     */
+    private $customer;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="CricketBrasil\SiteBundle\Entity\Provider", mappedBy="job")
+     */
+    private $provider;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->provider = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}

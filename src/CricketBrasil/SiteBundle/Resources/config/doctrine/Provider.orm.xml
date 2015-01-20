@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="CricketBrasil\SiteBundle\Entity\Provider" table="provider">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="uid" type="string" column="uid" length="40" nullable="false"/>
+    <field name="name" type="string" column="name" length="150" nullable="false"/>
+    <field name="email" type="string" column="email" length="150" nullable="false"/>
+    <field name="phone" type="string" column="phone" length="12" nullable="false"/>
+    <field name="address" type="text" column="address" length="65535" nullable="true"/>
+    <field name="updatedAt" type="datetime" column="updated_at" nullable="true"/>
+    <field name="createdAt" type="datetime" column="created_at" nullable="false"/>
+    <many-to-many field="job" target-entity="Job" inversed-by="provider">
+      <join-table name="provider_has_job">
+        <join-columns>
+          <join-column name="provider_id" referenced-column-name="id"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="job_id" referenced-column-name="id"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+  </entity>
+</doctrine-mapping>

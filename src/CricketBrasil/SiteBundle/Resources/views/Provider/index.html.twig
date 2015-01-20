@@ -1,0 +1,53 @@
+{% extends 'CricketBrasilSiteBundle::layout.html.twig' %}
+
+{% block body -%}
+    <h1>Provider list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Uid</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Updatedat</th>
+                <th>Createdat</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('fornecedor_show', { 'id': entity.id }) }}">{{ entity.uid }}</a></td>
+                <td>{{ entity.name }}</td>
+                <td>{{ entity.email }}</td>
+                <td>{{ entity.phone }}</td>
+                <td>{{ entity.address }}</td>
+                <td>{% if entity.updatedAt %}{{ entity.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.createdAt %}{{ entity.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.id }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('fornecedor_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('fornecedor_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('fornecedor_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}
