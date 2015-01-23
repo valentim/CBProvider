@@ -1,3 +1,8 @@
+cricket_brasil_search:
+    resource: "@CricketBrasilSearchBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 cricket_brasil_site:
     resource: "@CricketBrasilSiteBundle/Resources/config/routing.yml"
     prefix:   /

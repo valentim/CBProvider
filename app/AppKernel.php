@@ -17,7 +17,9 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new CricketBrasil\SiteBundle\CricketBrasilSiteBundle(),
-            new Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle()
+            new Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle(),
+            new CricketBrasil\SearchBundle\CricketBrasilSearchBundle(),
+            new FOS\ElasticaBundle\FOSElasticaBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

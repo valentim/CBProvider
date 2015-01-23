@@ -17,4 +17,10 @@ parameters:
     locale:            en
 
     # A secret key that's used to generate certain security-related tokens
+    
     secret:            ThisTokenIsNotSoSecretChangeIt
+    
+    #Elastic configs
+    
+    elastic_host : 192.168.1.17
+    elastic_port : 9200

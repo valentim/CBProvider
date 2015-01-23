@@ -1,0 +1,15 @@
+{% extends 'CricketBrasilSiteBundle::layout.html.twig' %}
+
+{% block body -%}
+    <h1>Busca de fornecedor</h1>
+
+    {{ form(SearchForm) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('fornecedor') }}">
+            Voltar
+        </a>
+    </li>
+</ul>
+{% endblock %}

@@ -259,6 +259,28 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        if (0 === strpos($pathinfo, '/search')) {
+            // cricketbrasil_search_default_index
+            if (preg_match('#^/search/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'cricketbrasil_search_default_index')), array (  '_controller' => 'CricketBrasil\\SearchBundle\\Controller\\DefaultController::indexAction',));
+            }
+
+            // cricketbrasil_search_default_set
+            if (0 === strpos($pathinfo, '/search/set') && preg_match('#^/search/set/(?P<user>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'cricketbrasil_search_default_set')), array (  '_controller' => 'CricketBrasil\\SearchBundle\\Controller\\DefaultController::setAction',));
+            }
+
+        }
+
+        // site_search
+        if (rtrim($pathinfo, '/') === '/provider/search') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'site_search');
+            }
+
+            return array (  '_controller' => 'CricketBrasil\\SearchBundle\\Controller\\DefaultController::searchAction',  '_route' => 'site_search',);
+        }
+
         // cricket_brasil_site_homepage
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {

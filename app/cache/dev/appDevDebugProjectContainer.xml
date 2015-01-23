@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
   <parameters>
-    <parameter key="kernel.root_dir">/var/www/cbprovider/app</parameter>
+    <parameter key="kernel.root_dir">/vagrant/repositories/CBProvider/app</parameter>
     <parameter key="kernel.environment">dev</parameter>
     <parameter key="kernel.debug">true</parameter>
     <parameter key="kernel.name">ap_</parameter>
-    <parameter key="kernel.cache_dir">/var/www/cbprovider/app/cache/dev</parameter>
-    <parameter key="kernel.logs_dir">/var/www/cbprovider/app/logs</parameter>
+    <parameter key="kernel.cache_dir">/vagrant/repositories/CBProvider/app/cache/dev</parameter>
+    <parameter key="kernel.logs_dir">/vagrant/repositories/CBProvider/app/logs</parameter>
     <parameter key="kernel.bundles" type="collection">
       <parameter key="FrameworkBundle">Symfony\Bundle\FrameworkBundle\FrameworkBundle</parameter>
       <parameter key="SecurityBundle">Symfony\Bundle\SecurityBundle\SecurityBundle</parameter>
@@ -18,6 +18,8 @@
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
       <parameter key="CricketBrasilSiteBundle">CricketBrasil\SiteBundle\CricketBrasilSiteBundle</parameter>
       <parameter key="BraincraftedBootstrapBundle">Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle</parameter>
+      <parameter key="CricketBrasilSearchBundle">CricketBrasil\SearchBundle\CricketBrasilSearchBundle</parameter>
+      <parameter key="FOSElasticaBundle">FOS\ElasticaBundle\FOSElasticaBundle</parameter>
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -37,6 +39,8 @@
     <parameter key="mailer_password">null</parameter>
     <parameter key="locale">pt</parameter>
     <parameter key="secret">ThisTokenIsNotSoSecretChangeIt</parameter>
+    <parameter key="elastic_host">192.168.1.17</parameter>
+    <parameter key="elastic_port">9200</parameter>
     <parameter key="controller_resolver.class">Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver</parameter>
     <parameter key="controller_name_converter.class">Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser</parameter>
     <parameter key="response_listener.class">Symfony\Component\HttpKernel\EventListener\ResponseListener</parameter>
@@ -104,7 +108,7 @@
     <parameter key="session.storage.options" type="collection">
       <parameter key="gc_probability">1</parameter>
     </parameter>
-    <parameter key="session.save_path">/var/www/cbprovider/app/cache/dev/sessions</parameter>
+    <parameter key="session.save_path">/vagrant/repositories/CBProvider/app/cache/dev/sessions</parameter>
     <parameter key="session.metadata.update_threshold">0</parameter>
     <parameter key="security.secure_random.class">Symfony\Component\Security\Core\Util\SecureRandom</parameter>
     <parameter key="form.resolved_type_factory.class">Symfony\Component\Form\ResolvedFormTypeFactory</parameter>
@@ -180,7 +184,7 @@
     <parameter key="data_collector.form.extractor.class">Symfony\Component\Form\Extension\DataCollector\FormDataExtractor</parameter>
     <parameter key="profiler_listener.only_exceptions">false</parameter>
     <parameter key="profiler_listener.only_master_requests">false</parameter>
-    <parameter key="profiler.storage.dsn">file:/var/www/cbprovider/app/cache/dev/profiler</parameter>
+    <parameter key="profiler.storage.dsn">file:/vagrant/repositories/CBProvider/app/cache/dev/profiler</parameter>
     <parameter key="profiler.storage.username"></parameter>
     <parameter key="profiler.storage.password"></parameter>
     <parameter key="profiler.storage.lifetime">86400</parameter>
@@ -204,7 +208,7 @@
     <parameter key="router.request_context.host">localhost</parameter>
     <parameter key="router.request_context.scheme">http</parameter>
     <parameter key="router.request_context.base_url"></parameter>
-    <parameter key="router.resource">/var/www/cbprovider/app/cache/dev/assetic/routing.yml</parameter>
+    <parameter key="router.resource">/vagrant/repositories/CBProvider/app/cache/dev/assetic/routing.yml</parameter>
     <parameter key="router.cache_class_prefix">appDev</parameter>
     <parameter key="request_listener.http_port">80</parameter>
     <parameter key="request_listener.https_port">443</parameter>
@@ -215,7 +219,7 @@
     <parameter key="debug.stopwatch.class">Symfony\Component\Stopwatch\Stopwatch</parameter>
     <parameter key="debug.error_handler.throw_at">-1</parameter>
     <parameter key="debug.event_dispatcher.class">Symfony\Component\HttpKernel\Debug\TraceableEventDispatcher</parameter>
-    <parameter key="debug.container.dump">/var/www/cbprovider/app/cache/dev/appDevDebugProjectContainer.xml</parameter>
+    <parameter key="debug.container.dump">/vagrant/repositories/CBProvider/app/cache/dev/appDevDebugProjectContainer.xml</parameter>
     <parameter key="debug.controller_resolver.class">Symfony\Component\HttpKernel\Controller\TraceableControllerResolver</parameter>
     <parameter key="security.context.class">Symfony\Component\Security\Core\SecurityContext</parameter>
     <parameter key="security.user_checker.class">Symfony\Component\Security\Core\User\UserChecker</parameter>
@@ -330,7 +334,7 @@
         <parameter>Symfony\Bundle\TwigBundle\TwigDefaultEscapingStrategy</parameter>
         <parameter>guess</parameter>
       </parameter>
-      <parameter key="cache">/var/www/cbprovider/app/cache/dev/twig</parameter>
+      <parameter key="cache">/vagrant/repositories/CBProvider/app/cache/dev/twig</parameter>
       <parameter key="charset">UTF-8</parameter>
       <parameter key="paths" type="collection"/>
     </parameter>
@@ -415,7 +419,7 @@
     <parameter key="swiftmailer.mailer.default.transport.smtp.auth_mode">null</parameter>
     <parameter key="swiftmailer.mailer.default.transport.smtp.timeout">30</parameter>
     <parameter key="swiftmailer.mailer.default.transport.smtp.source_ip">null</parameter>
-    <parameter key="swiftmailer.spool.default.memory.path">/var/www/cbprovider/app/cache/dev/swiftmailer/spool/default</parameter>
+    <parameter key="swiftmailer.spool.default.memory.path">/vagrant/repositories/CBProvider/app/cache/dev/swiftmailer/spool/default</parameter>
     <parameter key="swiftmailer.mailer.default.spool.enabled">true</parameter>
     <parameter key="swiftmailer.mailer.default.plugin.impersonate">null</parameter>
     <parameter key="swiftmailer.mailer.default.single_address">null</parameter>
@@ -440,7 +444,7 @@
     <parameter key="assetic.worker.cache_busting.class">Assetic\Factory\Worker\CacheBustingWorker</parameter>
     <parameter key="assetic.value_supplier.class">Symfony\Bundle\AsseticBundle\DefaultValueSupplier</parameter>
     <parameter key="assetic.node.paths" type="collection"/>
-    <parameter key="assetic.cache_dir">/var/www/cbprovider/app/cache/dev/assetic</parameter>
+    <parameter key="assetic.cache_dir">/vagrant/repositories/CBProvider/app/cache/dev/assetic</parameter>
     <parameter key="assetic.bundles" type="collection"/>
     <parameter key="assetic.twig_extension.class">Symfony\Bundle\AsseticBundle\Twig\AsseticExtension</parameter>
     <parameter key="assetic.twig_formula_loader.class">Assetic\Extension\Twig\TwigFormulaLoader</parameter>
@@ -450,12 +454,12 @@
     <parameter key="assetic.debug">true</parameter>
     <parameter key="assetic.use_controller">true</parameter>
     <parameter key="assetic.enable_profiler">false</parameter>
-    <parameter key="assetic.read_from">/var/www/cbprovider/app/../web</parameter>
-    <parameter key="assetic.write_to">/var/www/cbprovider/app/../web</parameter>
+    <parameter key="assetic.read_from">/vagrant/repositories/CBProvider/app/../web</parameter>
+    <parameter key="assetic.write_to">/vagrant/repositories/CBProvider/app/../web</parameter>
     <parameter key="assetic.variables" type="collection"/>
     <parameter key="assetic.java.bin">/usr/bin/java</parameter>
     <parameter key="assetic.node.bin">/usr/bin/node</parameter>
-    <parameter key="assetic.ruby.bin">/opt/vagrant_ruby/bin/ruby</parameter>
+    <parameter key="assetic.ruby.bin">/usr/bin/ruby</parameter>
     <parameter key="assetic.sass.bin">/usr/bin/sass</parameter>
     <parameter key="assetic.filter.less.class">Assetic\Filter\LessFilter</parameter>
     <parameter key="assetic.filter.less.node">/usr/bin/node</parameter>
@@ -568,7 +572,7 @@
     <parameter key="doctrine.orm.second_level_cache.cache_configuration.class">Doctrine\ORM\Cache\CacheConfiguration</parameter>
     <parameter key="doctrine.orm.second_level_cache.regions_configuration.class">Doctrine\ORM\Cache\RegionsConfiguration</parameter>
     <parameter key="doctrine.orm.auto_generate_proxy_classes">true</parameter>
-    <parameter key="doctrine.orm.proxy_dir">/var/www/cbprovider/app/cache/dev/doctrine/orm/Proxies</parameter>
+    <parameter key="doctrine.orm.proxy_dir">/vagrant/repositories/CBProvider/app/cache/dev/doctrine/orm/Proxies</parameter>
     <parameter key="doctrine.orm.proxy_namespace">Proxies</parameter>
     <parameter key="sensio_framework_extra.view.guesser.class">Sensio\Bundle\FrameworkExtraBundle\Templating\TemplateGuesser</parameter>
     <parameter key="sensio_framework_extra.controller.listener.class">Sensio\Bundle\FrameworkExtraBundle\EventListener\ControllerListener</parameter>
@@ -596,15 +600,37 @@
     <parameter key="braincrafted_bootstrap.flash.class">Braincrafted\Bundle\BootstrapBundle\Session\FlashMessage</parameter>
     <parameter key="braincrafted_bootstrap.customize" type="collection">
       <parameter key="variables_file">null</parameter>
-      <parameter key="bootstrap_output">/var/www/cbprovider/app/Resources/less/bootstrap.less</parameter>
+      <parameter key="bootstrap_output">/vagrant/repositories/CBProvider/app/Resources/less/bootstrap.less</parameter>
       <parameter key="bootstrap_template">BraincraftedBootstrapBundle:Bootstrap:bootstrap.less.twig</parameter>
     </parameter>
-    <parameter key="braincrafted_bootstrap.assets_dir">/var/www/cbprovider/app/../vendor/twitter/bootstrap</parameter>
-    <parameter key="braincrafted_bootstrap.fontawesome_dir">/var/www/cbprovider/app/../vendor/fortawesome/font-awesome</parameter>
-    <parameter key="braincrafted_bootstrap.fonts_dir">/var/www/cbprovider/app/../web/fonts</parameter>
+    <parameter key="braincrafted_bootstrap.assets_dir">/vagrant/repositories/CBProvider/app/../vendor/twitter/bootstrap</parameter>
+    <parameter key="braincrafted_bootstrap.fontawesome_dir">/vagrant/repositories/CBProvider/app/../vendor/fortawesome/font-awesome</parameter>
+    <parameter key="braincrafted_bootstrap.fonts_dir">/vagrant/repositories/CBProvider/app/../web/fonts</parameter>
     <parameter key="braincrafted_bootstrap.output_dir"></parameter>
     <parameter key="braincrafted_bootstrap.less_filter">less</parameter>
     <parameter key="braincrafted_bootstrap.icon_tag">span</parameter>
+    <parameter key="fos_elastica.client.class">FOS\ElasticaBundle\Elastica\Client</parameter>
+    <parameter key="fos_elastica.logger.class">FOS\ElasticaBundle\Logger\ElasticaLogger</parameter>
+    <parameter key="fos_elastica.data_collector.class">FOS\ElasticaBundle\DataCollector\ElasticaDataCollector</parameter>
+    <parameter key="fos_elastica.mapping_builder.class">FOS\ElasticaBundle\Index\MappingBuilder</parameter>
+    <parameter key="fos_elastica.property_accessor.class">Symfony\Component\PropertyAccess\PropertyAccessor</parameter>
+    <parameter key="fos_elastica.alias_processor.class">FOS\ElasticaBundle\Index\AliasProcessor</parameter>
+    <parameter key="fos_elastica.finder.class">FOS\ElasticaBundle\Finder\TransformedFinder</parameter>
+    <parameter key="fos_elastica.index.class">FOS\ElasticaBundle\Elastica\Index</parameter>
+    <parameter key="fos_elastica.indexable.class">FOS\ElasticaBundle\Provider\Indexable</parameter>
+    <parameter key="fos_elastica.index_manager.class">FOS\ElasticaBundle\Index\IndexManager</parameter>
+    <parameter key="fos_elastica.resetter.class">FOS\ElasticaBundle\Index\Resetter</parameter>
+    <parameter key="fos_elastica.type.class">Elastica\Type</parameter>
+    <parameter key="fos_elastica.object_persister.class">FOS\ElasticaBundle\Persister\ObjectPersister</parameter>
+    <parameter key="fos_elastica.object_serializer_persister.class">FOS\ElasticaBundle\Persister\ObjectSerializerPersister</parameter>
+    <parameter key="fos_elastica.provider_registry.class">FOS\ElasticaBundle\Provider\ProviderRegistry</parameter>
+    <parameter key="fos_elastica.elastica_to_model_transformer.collection.class">FOS\ElasticaBundle\Transformer\ElasticaToModelTransformerCollection</parameter>
+    <parameter key="fos_elastica.model_to_elastica_transformer.class">FOS\ElasticaBundle\Transformer\ModelToElasticaAutoTransformer</parameter>
+    <parameter key="fos_elastica.model_to_elastica_identifier_transformer.class">FOS\ElasticaBundle\Transformer\ModelToElasticaIdentifierTransformer</parameter>
+    <parameter key="fos_elastica.provider.prototype.orm.class">FOS\ElasticaBundle\Doctrine\ORM\Provider</parameter>
+    <parameter key="fos_elastica.listener.prototype.orm.class">FOS\ElasticaBundle\Doctrine\Listener</parameter>
+    <parameter key="fos_elastica.elastica_to_model_transformer.prototype.orm.class">FOS\ElasticaBundle\Doctrine\ORM\ElasticaToModelTransformer</parameter>
+    <parameter key="fos_elastica.manager.orm.class">FOS\ElasticaBundle\Doctrine\RepositoryManager</parameter>
     <parameter key="web_profiler.controller.profiler.class">Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController</parameter>
     <parameter key="web_profiler.controller.router.class">Symfony\Bundle\WebProfilerBundle\Controller\RouterController</parameter>
     <parameter key="web_profiler.controller.exception.class">Symfony\Bundle\WebProfilerBundle\Controller\ExceptionController</parameter>
@@ -671,6 +697,10 @@
         <parameter>db</parameter>
         <parameter>@Doctrine/Collector/db.html.twig</parameter>
       </parameter>
+      <parameter key="fos_elastica.data_collector" type="collection">
+        <parameter>elastica</parameter>
+        <parameter>FOSElasticaBundle:Collector:elastica</parameter>
+      </parameter>
       <parameter key="data_collector.dump" type="collection">
         <parameter>dump</parameter>
         <parameter>@Debug/Profiler/dump.html.twig</parameter>
@@ -719,7 +749,7 @@
               <service class="Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplateFinder" public="false">
                 <argument type="service" id="kernel"/>
                 <argument type="service" id="templating.filename_parser"/>
-                <argument>/var/www/cbprovider/app/Resources</argument>
+                <argument>/vagrant/repositories/CBProvider/app/Resources</argument>
               </service>
             </argument>
             <argument type="service" id="templating.locator"/>
@@ -745,7 +775,7 @@
               <service class="Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplateFinder" public="false">
                 <argument type="service" id="kernel"/>
                 <argument type="service" id="templating.filename_parser"/>
-                <argument>/var/www/cbprovider/app/Resources</argument>
+                <argument>/vagrant/repositories/CBProvider/app/Resources</argument>
               </service>
             </argument>
           </service>
@@ -767,7 +797,7 @@
     <service id="filesystem" class="Symfony\Component\Filesystem\Filesystem"/>
     <service id="file_locator" class="Symfony\Component\HttpKernel\Config\FileLocator">
       <argument type="service" id="kernel"/>
-      <argument>/var/www/cbprovider/app/Resources</argument>
+      <argument>/vagrant/repositories/CBProvider/app/Resources</argument>
     </service>
     <service id="uri_signer" class="Symfony\Component\HttpKernel\UriSigner">
       <argument>ThisTokenIsNotSoSecretChangeIt</argument>
@@ -864,7 +894,7 @@
         </argument>
       </argument>
       <argument type="collection">
-        <argument key="cache_dir">/var/www/cbprovider/app/cache/dev/translations</argument>
+        <argument key="cache_dir">/vagrant/repositories/CBProvider/app/cache/dev/translations</argument>
         <argument key="debug">true</argument>
       </argument>
     </service>
@@ -1077,7 +1107,7 @@
     </service>
     <service id="security.secure_random" class="Symfony\Component\Security\Core\Util\SecureRandom">
       <tag name="monolog.logger" channel="security"/>
-      <argument>/var/www/cbprovider/app/cache/dev/secure_random.seed</argument>
+      <argument>/vagrant/repositories/CBProvider/app/cache/dev/secure_random.seed</argument>
       <argument type="service" id="monolog.logger.security" on-invalid="ignore"/>
     </service>
     <service id="form.resolved_type_factory" class="Symfony\Component\Form\Extension\DataCollector\Proxy\ResolvedTypeFactoryDataCollectorProxy">
@@ -1302,7 +1332,7 @@
     <service id="templating.filename_parser" class="Symfony\Bundle\FrameworkBundle\Templating\TemplateFilenameParser"/>
     <service id="templating.locator" class="Symfony\Bundle\FrameworkBundle\Templating\Loader\TemplateLocator" public="false">
       <argument type="service" id="file_locator"/>
-      <argument>/var/www/cbprovider/app/cache/dev</argument>
+      <argument>/vagrant/repositories/CBProvider/app/cache/dev</argument>
     </service>
     <service id="templating.helper.slots" class="Symfony\Component\Templating\Helper\SlotsHelper">
       <tag name="templating.helper" alias="slots"/>
@@ -1340,7 +1370,7 @@
     <service id="templating.helper.code" class="Symfony\Bundle\FrameworkBundle\Templating\Helper\CodeHelper">
       <tag name="templating.helper" alias="code"/>
       <argument>null</argument>
-      <argument>/var/www/cbprovider/app</argument>
+      <argument>/vagrant/repositories/CBProvider/app</argument>
       <argument>UTF-8</argument>
     </service>
     <service id="templating.helper.translator" class="Symfony\Bundle\FrameworkBundle\Templating\Helper\TranslatorHelper">
@@ -1395,7 +1425,7 @@
       </call>
       <call method="addXmlMappings">
         <argument type="collection">
-          <argument>/var/www/cbprovider/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/config/validation.xml</argument>
+          <argument>/vagrant/repositories/CBProvider/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/config/validation.xml</argument>
         </argument>
       </call>
       <call method="enableAnnotationMapping">
@@ -1435,7 +1465,7 @@
       <tag name="monolog.logger" channel="profiler"/>
       <argument type="service">
         <service class="Symfony\Component\HttpKernel\Profiler\FileProfilerStorage" public="false">
-          <argument>file:/var/www/cbprovider/app/cache/dev/profiler</argument>
+          <argument>file:/vagrant/repositories/CBProvider/app/cache/dev/profiler</argument>
           <argument></argument>
           <argument></argument>
           <argument>86400</argument>
@@ -1535,6 +1565,9 @@
             </call>
           </service>
         </argument>
+      </call>
+      <call method="add">
+        <argument type="service" id="fos_elastica.data_collector"/>
       </call>
       <call method="add">
         <argument type="service" id="data_collector.dump"/>
@@ -1814,7 +1847,7 @@
       <argument type="collection">
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>54beaf3a76cbf</argument>
+            <argument>54c27634b2427</argument>
           </service>
         </argument>
       </argument>
@@ -1933,7 +1966,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>54beaf3a76cbf</argument>
+            <argument>54c27634b2427</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -1982,7 +2015,7 @@
           <argument>Symfony\Bundle\TwigBundle\TwigDefaultEscapingStrategy</argument>
           <argument>guess</argument>
         </argument>
-        <argument key="cache">/var/www/cbprovider/app/cache/dev/twig</argument>
+        <argument key="cache">/vagrant/repositories/CBProvider/app/cache/dev/twig</argument>
         <argument key="charset">UTF-8</argument>
         <argument key="paths" type="collection"/>
       </argument>
@@ -2032,7 +2065,7 @@
           <service class="Symfony\Bridge\Twig\Extension\CodeExtension" public="false">
             <tag name="twig.extension"/>
             <argument>null</argument>
-            <argument>/var/www/cbprovider/app</argument>
+            <argument>/vagrant/repositories/CBProvider/app</argument>
             <argument>UTF-8</argument>
           </service>
         </argument>
@@ -2179,7 +2212,7 @@
       <argument>twig.controller.exception:showAction</argument>
     </service>
     <service id="monolog.handler.main" class="Monolog\Handler\StreamHandler">
-      <argument>/var/www/cbprovider/app/logs/dev.log</argument>
+      <argument>/vagrant/repositories/CBProvider/app/logs/dev.log</argument>
       <argument>100</argument>
       <argument>true</argument>
       <argument>null</argument>
@@ -2247,7 +2280,7 @@
             </argument>
             <argument type="service">
               <service class="Assetic\Cache\ConfigCache" public="false">
-                <argument>/var/www/cbprovider/app/cache/dev/assetic/config</argument>
+                <argument>/vagrant/repositories/CBProvider/app/cache/dev/assetic/config</argument>
               </service>
             </argument>
             <argument>true</argument>
@@ -2261,10 +2294,10 @@
             <argument type="collection">
               <argument key="bootstrap_css" type="collection">
                 <argument type="collection">
-                  <argument>/var/www/cbprovider/app/../vendor/twitter/bootstrap/less/bootstrap.less</argument>
-                  <argument>/var/www/cbprovider/vendor/braincrafted/bootstrap-bundle/Braincrafted/Bundle/BootstrapBundle/DependencyInjection/../Resources/less/form.less</argument>
-                  <argument>/var/www/cbprovider/app/../vendor/twitter/bootstrap/less/bootstrap.less</argument>
-                  <argument>/var/www/cbprovider/app/../vendor/braincrafted/bootstrap-bundle/Braincrafted/Bundle/BootstrapBundle/Resources/less/form.less</argument>
+                  <argument>/vagrant/repositories/CBProvider/app/../vendor/twitter/bootstrap/less/bootstrap.less</argument>
+                  <argument>/vagrant/repositories/CBProvider/vendor/braincrafted/bootstrap-bundle/Braincrafted/Bundle/BootstrapBundle/DependencyInjection/../Resources/less/form.less</argument>
+                  <argument>/vagrant/repositories/CBProvider/app/../vendor/twitter/bootstrap/less/bootstrap.less</argument>
+                  <argument>/vagrant/repositories/CBProvider/app/../vendor/braincrafted/bootstrap-bundle/Braincrafted/Bundle/BootstrapBundle/Resources/less/form.less</argument>
                 </argument>
                 <argument type="collection">
                   <argument>less</argument>
@@ -2277,32 +2310,32 @@
               </argument>
               <argument key="bootstrap_js" type="collection">
                 <argument type="collection">
-                  <argument>/var/www/cbprovider/app/../vendor/twitter/bootstrap/js/transition.js</argument>
-                  <argument>/var/www/cbprovider/app/../vendor/twitter/bootstrap/js/alert.js</argument>
-                  <argument>/var/www/cbprovider/app/../vendor/twitter/bootstrap/js/button.js</argument>
-                  <argument>/var/www/cbprovider/app/../vendor/twitter/bootstrap/js/carousel.js</argument>
-                  <argument>/var/www/cbprovider/app/../vendor/twitter/bootstrap/js/collapse.js</argument>
-                  <argument>/var/www/cbprovider/app/../vendor/twitter/bootstrap/js/dropdown.js</argument>
-                  <argument>/var/www/cbprovider/app/../vendor/twitter/bootstrap/js/modal.js</argument>
-                  <argument>/var/www/cbprovider/app/../vendor/twitter/bootstrap/js/tooltip.js</argument>
-                  <argument>/var/www/cbprovider/app/../vendor/twitter/bootstrap/js/popover.js</argument>
-                  <argument>/var/www/cbprovider/app/../vendor/twitter/bootstrap/js/scrollspy.js</argument>
-                  <argument>/var/www/cbprovider/app/../vendor/twitter/bootstrap/js/tab.js</argument>
-                  <argument>/var/www/cbprovider/app/../vendor/twitter/bootstrap/js/affix.js</argument>
-                  <argument>/var/www/cbprovider/vendor/braincrafted/bootstrap-bundle/Braincrafted/Bundle/BootstrapBundle/DependencyInjection/../Resources/js/bc-bootstrap-collection.js</argument>
-                  <argument>/var/www/cbprovider/app/../vendor/twitter/bootstrap/js/transition.js</argument>
-                  <argument>/var/www/cbprovider/app/../vendor/twitter/bootstrap/js/alert.js</argument>
-                  <argument>/var/www/cbprovider/app/../vendor/twitter/bootstrap/js/button.js</argument>
-                  <argument>/var/www/cbprovider/app/../vendor/twitter/bootstrap/js/carousel.js</argument>
-                  <argument>/var/www/cbprovider/app/../vendor/twitter/bootstrap/js/collapse.js</argument>
-                  <argument>/var/www/cbprovider/app/../vendor/twitter/bootstrap/js/dropdown.js</argument>
-                  <argument>/var/www/cbprovider/app/../vendor/twitter/bootstrap/js/modal.js</argument>
-                  <argument>/var/www/cbprovider/app/../vendor/twitter/bootstrap/js/tooltip.js</argument>
-                  <argument>/var/www/cbprovider/app/../vendor/twitter/bootstrap/js/popover.js</argument>
-                  <argument>/var/www/cbprovider/app/../vendor/twitter/bootstrap/js/scrollspy.js</argument>
-                  <argument>/var/www/cbprovider/app/../vendor/twitter/bootstrap/js/tab.js</argument>
-                  <argument>/var/www/cbprovider/app/../vendor/twitter/bootstrap/js/affix.js</argument>
-                  <argument>/var/www/cbprovider/app/../vendor/braincrafted/bootstrap-bundle/Braincrafted/Bundle/BootstrapBundle/Resources/js/bc-bootstrap-collection.js</argument>
+                  <argument>/vagrant/repositories/CBProvider/app/../vendor/twitter/bootstrap/js/transition.js</argument>
+                  <argument>/vagrant/repositories/CBProvider/app/../vendor/twitter/bootstrap/js/alert.js</argument>
+                  <argument>/vagrant/repositories/CBProvider/app/../vendor/twitter/bootstrap/js/button.js</argument>
+                  <argument>/vagrant/repositories/CBProvider/app/../vendor/twitter/bootstrap/js/carousel.js</argument>
+                  <argument>/vagrant/repositories/CBProvider/app/../vendor/twitter/bootstrap/js/collapse.js</argument>
+                  <argument>/vagrant/repositories/CBProvider/app/../vendor/twitter/bootstrap/js/dropdown.js</argument>
+                  <argument>/vagrant/repositories/CBProvider/app/../vendor/twitter/bootstrap/js/modal.js</argument>
+                  <argument>/vagrant/repositories/CBProvider/app/../vendor/twitter/bootstrap/js/tooltip.js</argument>
+                  <argument>/vagrant/repositories/CBProvider/app/../vendor/twitter/bootstrap/js/popover.js</argument>
+                  <argument>/vagrant/repositories/CBProvider/app/../vendor/twitter/bootstrap/js/scrollspy.js</argument>
+                  <argument>/vagrant/repositories/CBProvider/app/../vendor/twitter/bootstrap/js/tab.js</argument>
+                  <argument>/vagrant/repositories/CBProvider/app/../vendor/twitter/bootstrap/js/affix.js</argument>
+                  <argument>/vagrant/repositories/CBProvider/vendor/braincrafted/bootstrap-bundle/Braincrafted/Bundle/BootstrapBundle/DependencyInjection/../Resources/js/bc-bootstrap-collection.js</argument>
+                  <argument>/vagrant/repositories/CBProvider/app/../vendor/twitter/bootstrap/js/transition.js</argument>
+                  <argument>/vagrant/repositories/CBProvider/app/../vendor/twitter/bootstrap/js/alert.js</argument>
+                  <argument>/vagrant/repositories/CBProvider/app/../vendor/twitter/bootstrap/js/button.js</argument>
+                  <argument>/vagrant/repositories/CBProvider/app/../vendor/twitter/bootstrap/js/carousel.js</argument>
+                  <argument>/vagrant/repositories/CBProvider/app/../vendor/twitter/bootstrap/js/collapse.js</argument>
+                  <argument>/vagrant/repositories/CBProvider/app/../vendor/twitter/bootstrap/js/dropdown.js</argument>
+                  <argument>/vagrant/repositories/CBProvider/app/../vendor/twitter/bootstrap/js/modal.js</argument>
+                  <argument>/vagrant/repositories/CBProvider/app/../vendor/twitter/bootstrap/js/tooltip.js</argument>
+                  <argument>/vagrant/repositories/CBProvider/app/../vendor/twitter/bootstrap/js/popover.js</argument>
+                  <argument>/vagrant/repositories/CBProvider/app/../vendor/twitter/bootstrap/js/scrollspy.js</argument>
+                  <argument>/vagrant/repositories/CBProvider/app/../vendor/twitter/bootstrap/js/tab.js</argument>
+                  <argument>/vagrant/repositories/CBProvider/app/../vendor/twitter/bootstrap/js/affix.js</argument>
+                  <argument>/vagrant/repositories/CBProvider/app/../vendor/braincrafted/bootstrap-bundle/Braincrafted/Bundle/BootstrapBundle/Resources/js/bc-bootstrap-collection.js</argument>
                 </argument>
                 <argument type="collection"/>
                 <argument type="collection">
@@ -2311,8 +2344,8 @@
               </argument>
               <argument key="jquery" type="collection">
                 <argument type="collection">
-                  <argument>/var/www/cbprovider/app/../vendor/jquery/jquery/jquery-1.11.2.min.js</argument>
-                  <argument>/var/www/cbprovider/app/../vendor/jquery/jquery/jquery-1.11.2.min.js</argument>
+                  <argument>/vagrant/repositories/CBProvider/app/../vendor/jquery/jquery/jquery-1.11.2.min.js</argument>
+                  <argument>/vagrant/repositories/CBProvider/app/../vendor/jquery/jquery/jquery-1.11.2.min.js</argument>
                 </argument>
                 <argument type="collection"/>
                 <argument type="collection">
@@ -2331,7 +2364,7 @@
             <tag name="assetic.formula_resource" loader="twig"/>
             <argument type="service" id="templating.loader"/>
             <argument></argument>
-            <argument>/var/www/cbprovider/app/Resources/views</argument>
+            <argument>/vagrant/repositories/CBProvider/app/Resources/views</argument>
             <argument>/\.[^.]+\.twig$/</argument>
           </service>
         </argument>
@@ -2344,7 +2377,7 @@
       <argument type="service">
         <service class="Symfony\Component\DependencyInjection\ParameterBag\ParameterBag" factory-method="getParameterBag" factory-service="service_container" public="false"/>
       </argument>
-      <argument>/var/www/cbprovider/app/../web</argument>
+      <argument>/vagrant/repositories/CBProvider/app/../web</argument>
       <argument>true</argument>
       <call method="addWorker">
         <argument type="service">
@@ -2390,7 +2423,7 @@
       <argument type="service" id="profiler" on-invalid="null"/>
     </service>
     <service id="assetic.cache" class="Assetic\Cache\FilesystemCache" public="false">
-      <argument>/var/www/cbprovider/app/cache/dev/assetic/assets</argument>
+      <argument>/vagrant/repositories/CBProvider/app/cache/dev/assetic/assets</argument>
     </service>
     <service id="assetic.request_listener" class="Symfony\Bundle\AsseticBundle\EventListener\RequestListener">
       <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest"/>
@@ -2446,6 +2479,27 @@
       <argument type="service">
         <service class="Symfony\Bridge\Doctrine\ContainerAwareEventManager" public="false">
           <argument type="service" id="service_container"/>
+          <call method="addEventSubscriber">
+            <argument type="service">
+              <service class="FOS\ElasticaBundle\Doctrine\Listener" public="false">
+                <tag name="doctrine.event_subscriber"/>
+                <argument type="service" id="fos_elastica.object_persister.cbprovider.provider"/>
+                <argument type="collection">
+                  <argument>postPersist</argument>
+                  <argument>postUpdate</argument>
+                  <argument>preRemove</argument>
+                  <argument>postFlush</argument>
+                </argument>
+                <argument type="service" id="fos_elastica.indexable"/>
+                <argument type="collection">
+                  <argument key="identifier">id</argument>
+                  <argument key="indexName">cbprovider</argument>
+                  <argument key="typeName">provider</argument>
+                </argument>
+                <argument></argument>
+              </service>
+            </argument>
+          </call>
         </service>
       </argument>
       <argument type="collection"/>
@@ -2468,17 +2522,17 @@
     </service>
     <service id="doctrine_cache.providers.doctrine.orm.default_metadata_cache" class="Doctrine\Common\Cache\ArrayCache">
       <call method="setNamespace">
-        <argument>sf2orm_default_b76d4b832f519af857a62558c79f6719e86a0564b75f37108fa012b08863b9a1</argument>
+        <argument>sf2orm_default_ad04d162f6e4c906352715db81fef58934401b3250d9f51da558446136102ef1</argument>
       </call>
     </service>
     <service id="doctrine_cache.providers.doctrine.orm.default_result_cache" class="Doctrine\Common\Cache\ArrayCache">
       <call method="setNamespace">
-        <argument>sf2orm_default_b76d4b832f519af857a62558c79f6719e86a0564b75f37108fa012b08863b9a1</argument>
+        <argument>sf2orm_default_ad04d162f6e4c906352715db81fef58934401b3250d9f51da558446136102ef1</argument>
       </call>
     </service>
     <service id="doctrine_cache.providers.doctrine.orm.default_query_cache" class="Doctrine\Common\Cache\ArrayCache">
       <call method="setNamespace">
-        <argument>sf2orm_default_b76d4b832f519af857a62558c79f6719e86a0564b75f37108fa012b08863b9a1</argument>
+        <argument>sf2orm_default_ad04d162f6e4c906352715db81fef58934401b3250d9f51da558446136102ef1</argument>
       </call>
     </service>
     <service id="doctrine.orm.default_entity_listener_resolver" class="Doctrine\ORM\Mapping\DefaultEntityListenerResolver"/>
@@ -2493,6 +2547,7 @@
           <call method="setEntityNamespaces">
             <argument type="collection">
               <argument key="CricketBrasilSiteBundle">CricketBrasil\SiteBundle\Entity</argument>
+              <argument key="CricketBrasilSearchBundle">CricketBrasil\SearchBundle\Entity</argument>
             </argument>
           </call>
           <call method="setMetadataCacheImpl">
@@ -2511,7 +2566,7 @@
                   <argument type="service">
                     <service class="Doctrine\ORM\Mapping\Driver\SimplifiedXmlDriver" public="false">
                       <argument type="collection">
-                        <argument key="/var/www/cbprovider/src/CricketBrasil/SiteBundle/Resources/config/doctrine">CricketBrasil\SiteBundle\Entity</argument>
+                        <argument key="/vagrant/repositories/CBProvider/src/CricketBrasil/SiteBundle/Resources/config/doctrine">CricketBrasil\SiteBundle\Entity</argument>
                       </argument>
                       <call method="setGlobalBasename">
                         <argument>mapping</argument>
@@ -2520,11 +2575,22 @@
                   </argument>
                   <argument>CricketBrasil\SiteBundle\Entity</argument>
                 </call>
+                <call method="addDriver">
+                  <argument type="service">
+                    <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
+                      <argument type="service" id="annotation_reader"/>
+                      <argument type="collection">
+                        <argument>/vagrant/repositories/CBProvider/src/CricketBrasil/SearchBundle/Entity</argument>
+                      </argument>
+                    </service>
+                  </argument>
+                  <argument>CricketBrasil\SearchBundle\Entity</argument>
+                </call>
               </service>
             </argument>
           </call>
           <call method="setProxyDir">
-            <argument>/var/www/cbprovider/app/cache/dev/doctrine/orm/Proxies</argument>
+            <argument>/vagrant/repositories/CBProvider/app/cache/dev/doctrine/orm/Proxies</argument>
           </call>
           <call method="setProxyNamespace">
             <argument>Proxies</argument>
@@ -2638,6 +2704,227 @@
     <service id="braincrafted_bootstrap.flash" class="Braincrafted\Bundle\BootstrapBundle\Session\FlashMessage">
       <argument type="service" id="session"/>
     </service>
+    <service id="fos_elastica.config_manager" class="FOS\ElasticaBundle\Configuration\ConfigManager">
+      <argument type="collection">
+        <argument type="service">
+          <service class="FOS\ElasticaBundle\Configuration\Source\ContainerSource" public="false">
+            <tag name="fos_elastica.config_source"/>
+            <argument type="collection">
+              <argument key="cbprovider" type="collection">
+                <argument key="elasticsearch_name">cbprovider</argument>
+                <argument key="reference" type="service" id="fos_elastica.index.cbprovider"/>
+                <argument key="name">cbprovider</argument>
+                <argument key="settings" type="collection"/>
+                <argument key="type_prototype" type="collection"/>
+                <argument key="use_alias">false</argument>
+                <argument key="types" type="collection">
+                  <argument key="provider" type="collection">
+                    <argument key="name">provider</argument>
+                    <argument key="mapping" type="collection">
+                      <argument key="dynamic_templates" type="collection"/>
+                      <argument key="properties" type="collection">
+                        <argument key="id" type="collection">
+                          <argument key="type">integer</argument>
+                        </argument>
+                        <argument key="created_at" type="collection">
+                          <argument key="type">date</argument>
+                        </argument>
+                        <argument key="updated_at" type="collection">
+                          <argument key="type">date</argument>
+                        </argument>
+                        <argument key="uid" type="collection"/>
+                        <argument key="name" type="collection"/>
+                        <argument key="email" type="collection"/>
+                        <argument key="phone" type="collection"/>
+                        <argument key="address" type="collection"/>
+                      </argument>
+                    </argument>
+                    <argument key="config" type="collection">
+                      <argument key="persistence" type="collection">
+                        <argument key="driver">orm</argument>
+                        <argument key="model">CricketBrasil\SiteBundle\Entity\Provider</argument>
+                        <argument key="repository">CricketBrasil\SearchBundle\Entity\SearchRepository\ProviderRepository</argument>
+                        <argument key="finder" type="collection"/>
+                        <argument key="provider" type="collection">
+                          <argument key="batch_size">100</argument>
+                          <argument key="clear_object_manager">true</argument>
+                          <argument key="debug_logging">true</argument>
+                          <argument key="query_builder_method">createQueryBuilder</argument>
+                        </argument>
+                        <argument key="listener" type="collection">
+                          <argument key="insert">true</argument>
+                          <argument key="update">true</argument>
+                          <argument key="delete">true</argument>
+                          <argument key="flush">true</argument>
+                          <argument key="immediate">false</argument>
+                          <argument key="logger">false</argument>
+                        </argument>
+                        <argument key="identifier">id</argument>
+                        <argument key="elastica_to_model_transformer" type="collection">
+                          <argument key="hydrate">true</argument>
+                          <argument key="ignore_missing">false</argument>
+                          <argument key="query_builder_method">createQueryBuilder</argument>
+                        </argument>
+                        <argument key="model_to_elastica_transformer" type="collection"/>
+                      </argument>
+                      <argument key="serializer" type="collection">
+                        <argument key="groups" type="collection"/>
+                      </argument>
+                      <argument key="index_analyzer">null</argument>
+                      <argument key="search_analyzer">null</argument>
+                    </argument>
+                  </argument>
+                </argument>
+              </argument>
+            </argument>
+          </service>
+        </argument>
+      </argument>
+    </service>
+    <service id="fos_elastica.data_collector" class="FOS\ElasticaBundle\DataCollector\ElasticaDataCollector">
+      <tag name="data_collector" template="FOSElasticaBundle:Collector:elastica" id="elastica"/>
+      <argument type="service" id="fos_elastica.logger"/>
+    </service>
+    <service id="fos_elastica.paginator.subscriber" class="FOS\ElasticaBundle\Subscriber\PaginateElasticaQuerySubscriber">
+      <tag name="knp_paginator.subscriber"/>
+      <call method="setRequest">
+        <argument type="service" id="request" on-invalid="null" strict="false"/>
+      </call>
+    </service>
+    <service id="fos_elastica.logger" class="FOS\ElasticaBundle\Logger\ElasticaLogger">
+      <tag name="monolog.logger" channel="elastica"/>
+      <argument type="service" id="monolog.logger.elastica" on-invalid="null"/>
+      <argument>true</argument>
+    </service>
+    <service id="fos_elastica.mapping_builder" class="FOS\ElasticaBundle\Index\MappingBuilder"/>
+    <service id="fos_elastica.property_accessor" class="Symfony\Component\PropertyAccess\PropertyAccessor"/>
+    <service id="fos_elastica.alias_processor" class="FOS\ElasticaBundle\Index\AliasProcessor"/>
+    <service id="fos_elastica.indexable" class="FOS\ElasticaBundle\Provider\Indexable">
+      <argument type="collection"/>
+      <argument type="service" id="service_container"/>
+    </service>
+    <service id="fos_elastica.index_manager" class="FOS\ElasticaBundle\Index\IndexManager">
+      <argument type="collection">
+        <argument key="cbprovider" type="service" id="fos_elastica.index.cbprovider"/>
+      </argument>
+      <argument type="service" id="fos_elastica.index.cbprovider"/>
+    </service>
+    <service id="fos_elastica.resetter" class="FOS\ElasticaBundle\Index\Resetter">
+      <argument type="service" id="fos_elastica.config_manager"/>
+      <argument type="service" id="fos_elastica.index_manager"/>
+      <argument type="service" id="fos_elastica.alias_processor"/>
+      <argument type="service" id="fos_elastica.mapping_builder"/>
+    </service>
+    <service id="fos_elastica.provider_registry" class="FOS\ElasticaBundle\Provider\ProviderRegistry">
+      <call method="setContainer">
+        <argument type="service" id="service_container"/>
+      </call>
+      <call method="addProvider">
+        <argument>cbprovider</argument>
+        <argument>provider</argument>
+        <argument>fos_elastica.provider.cbprovider.provider</argument>
+      </call>
+    </service>
+    <service id="fos_elastica.client.default" class="FOS\ElasticaBundle\Elastica\Client">
+      <tag name="fos_elastica.client"/>
+      <argument type="collection">
+        <argument key="connections" type="collection">
+          <argument type="collection">
+            <argument key="host">192.168.1.17</argument>
+            <argument key="port">9200</argument>
+            <argument key="logger">fos_elastica.logger</argument>
+            <argument key="headers" type="collection"/>
+          </argument>
+        </argument>
+      </argument>
+      <argument></argument>
+      <call method="setStopwatch">
+        <argument type="service" id="debug.stopwatch" on-invalid="null"/>
+      </call>
+      <call method="setLogger">
+        <argument type="service" id="fos_elastica.logger"/>
+      </call>
+    </service>
+    <service id="fos_elastica.index.cbprovider" class="FOS\ElasticaBundle\Elastica\Index" factory-method="getIndex" factory-service="fos_elastica.client.default">
+      <tag name="cbprovider"/>
+      <argument>cbprovider</argument>
+    </service>
+    <service id="fos_elastica.index.cbprovider.provider" class="Elastica\Type" factory-method="getType" factory-service="fos_elastica.index.cbprovider">
+      <argument>provider</argument>
+    </service>
+    <service id="fos_elastica.manager.orm" class="FOS\ElasticaBundle\Doctrine\RepositoryManager">
+      <argument type="service" id="doctrine"/>
+      <argument type="service" id="annotation_reader"/>
+      <call method="addEntity">
+        <argument>CricketBrasil\SiteBundle\Entity\Provider</argument>
+        <argument type="service" id="fos_elastica.finder.cbprovider.provider"/>
+        <argument>CricketBrasil\SearchBundle\Entity\SearchRepository\ProviderRepository</argument>
+      </call>
+    </service>
+    <service id="fos_elastica.object_persister.cbprovider.provider" class="FOS\ElasticaBundle\Persister\ObjectPersister">
+      <argument type="service" id="fos_elastica.index.cbprovider.provider"/>
+      <argument type="service">
+        <service class="FOS\ElasticaBundle\Transformer\ModelToElasticaAutoTransformer" public="false">
+          <argument type="collection">
+            <argument key="identifier">id</argument>
+          </argument>
+          <call method="setPropertyAccessor">
+            <argument type="service" id="fos_elastica.property_accessor"/>
+          </call>
+        </service>
+      </argument>
+      <argument>CricketBrasil\SiteBundle\Entity\Provider</argument>
+      <argument type="collection">
+        <argument key="id" type="collection">
+          <argument key="type">integer</argument>
+        </argument>
+        <argument key="created_at" type="collection">
+          <argument key="type">date</argument>
+        </argument>
+        <argument key="updated_at" type="collection">
+          <argument key="type">date</argument>
+        </argument>
+        <argument key="uid" type="collection"/>
+        <argument key="name" type="collection"/>
+        <argument key="email" type="collection"/>
+        <argument key="phone" type="collection"/>
+        <argument key="address" type="collection"/>
+      </argument>
+    </service>
+    <service id="fos_elastica.provider.cbprovider.provider" class="FOS\ElasticaBundle\Doctrine\ORM\Provider">
+      <tag name="fos_elastica.provider" index="cbprovider" type="provider"/>
+      <argument type="service" id="fos_elastica.object_persister.cbprovider.provider"/>
+      <argument type="service" id="fos_elastica.indexable"/>
+      <argument>CricketBrasil\SiteBundle\Entity\Provider</argument>
+      <argument type="collection">
+        <argument key="batch_size">100</argument>
+        <argument key="clear_object_manager">true</argument>
+        <argument key="debug_logging">true</argument>
+        <argument key="query_builder_method">createQueryBuilder</argument>
+        <argument key="indexName">cbprovider</argument>
+        <argument key="typeName">provider</argument>
+      </argument>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="fos_elastica.finder.cbprovider.provider" class="FOS\ElasticaBundle\Finder\TransformedFinder">
+      <argument type="service" id="fos_elastica.index.cbprovider.provider"/>
+      <argument type="service">
+        <service class="FOS\ElasticaBundle\Doctrine\ORM\ElasticaToModelTransformer" public="false">
+          <tag name="fos_elastica.elastica_to_model_transformer" type="provider" index="cbprovider"/>
+          <argument type="service" id="doctrine"/>
+          <argument>CricketBrasil\SiteBundle\Entity\Provider</argument>
+          <argument type="collection">
+            <argument key="hydrate">true</argument>
+            <argument key="ignore_missing">false</argument>
+            <argument key="query_builder_method">createQueryBuilder</argument>
+            <argument key="identifier">id</argument>
+          </argument>
+          <call method="setPropertyAccessor">
+            <argument type="service" id="fos_elastica.property_accessor"/>
+          </call>
+        </service>
+      </argument>
+    </service>
     <service id="data_collector.dump" class="Symfony\Component\HttpKernel\DataCollector\DumpDataCollector">
       <tag name="data_collector" id="dump" template="@Debug/Profiler/dump.html.twig"/>
       <argument type="service" id="debug.stopwatch" on-invalid="ignore"/>
@@ -2713,6 +3000,10 @@
           <argument>db</argument>
           <argument>@Doctrine/Collector/db.html.twig</argument>
         </argument>
+        <argument key="fos_elastica.data_collector" type="collection">
+          <argument>elastica</argument>
+          <argument>FOSElasticaBundle:Collector:elastica</argument>
+        </argument>
         <argument key="data_collector.dump" type="collection">
           <argument>dump</argument>
           <argument>@Debug/Profiler/dump.html.twig</argument>
@@ -2740,7 +3031,7 @@
       <argument>^/bundles|^/_wdt</argument>
     </service>
     <service id="sensio_distribution.webconfigurator" class="Sensio\Bundle\DistributionBundle\Configurator\Configurator">
-      <argument>/var/www/cbprovider/app</argument>
+      <argument>/vagrant/repositories/CBProvider/app</argument>
       <call method="addStep">
         <argument type="service">
           <service class="Sensio\Bundle\DistributionBundle\Configurator\Step\DoctrineStep" public="false">
@@ -2883,12 +3174,24 @@
         <argument type="service" id="monolog.handler.debug"/>
       </call>
     </service>
+    <service id="monolog.logger.elastica" class="Symfony\Bridge\Monolog\Logger">
+      <argument>elastica</argument>
+      <call method="pushHandler">
+        <argument type="service" id="monolog.handler.console"/>
+      </call>
+      <call method="pushHandler">
+        <argument type="service" id="monolog.handler.main"/>
+      </call>
+      <call method="pushHandler">
+        <argument type="service" id="monolog.handler.debug"/>
+      </call>
+    </service>
     <service id="monolog.handler.debug" class="Symfony\Bridge\Monolog\Handler\DebugHandler">
       <argument>100</argument>
       <argument>true</argument>
     </service>
     <service id="session.storage.filesystem" class="Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorage">
-      <argument>/var/www/cbprovider/app/cache/dev/sessions</argument>
+      <argument>/vagrant/repositories/CBProvider/app/cache/dev/sessions</argument>
       <argument>MOCKSESSID</argument>
       <argument type="service" id="session.storage.metadata_bag"/>
     </service>
@@ -2931,9 +3234,9 @@
     <service id="router" class="Symfony\Bundle\FrameworkBundle\Routing\Router">
       <tag name="monolog.logger" channel="router"/>
       <argument type="service" id="service_container"/>
-      <argument>/var/www/cbprovider/app/cache/dev/assetic/routing.yml</argument>
+      <argument>/vagrant/repositories/CBProvider/app/cache/dev/assetic/routing.yml</argument>
       <argument type="collection">
-        <argument key="cache_dir">/var/www/cbprovider/app/cache/dev</argument>
+        <argument key="cache_dir">/vagrant/repositories/CBProvider/app/cache/dev</argument>
         <argument key="debug">true</argument>
         <argument key="generator_class">Symfony\Component\Routing\Generator\UrlGenerator</argument>
         <argument key="generator_base_class">Symfony\Component\Routing\Generator\UrlGenerator</argument>
@@ -2953,7 +3256,7 @@
       <argument type="service">
         <service class="Doctrine\Common\Annotations\AnnotationReader" public="false"/>
       </argument>
-      <argument>/var/www/cbprovider/app/cache/dev/annotations</argument>
+      <argument>/vagrant/repositories/CBProvider/app/cache/dev/annotations</argument>
       <argument>true</argument>
     </service>
     <service id="security.encoder_factory" class="Symfony\Component\Security\Core\Encoder\EncoderFactory">
@@ -2967,50 +3270,58 @@
       <argument type="service" id="templating.locator"/>
       <argument type="service" id="templating.name_parser"/>
       <call method="addPath">
-        <argument>/var/www/cbprovider/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Resources/views</argument>
+        <argument>/vagrant/repositories/CBProvider/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Resources/views</argument>
         <argument>Framework</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/cbprovider/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/Resources/views</argument>
+        <argument>/vagrant/repositories/CBProvider/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/Resources/views</argument>
         <argument>Security</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/cbprovider/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/views</argument>
+        <argument>/vagrant/repositories/CBProvider/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/views</argument>
         <argument>Twig</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/cbprovider/vendor/symfony/swiftmailer-bundle/Resources/views</argument>
+        <argument>/vagrant/repositories/CBProvider/vendor/symfony/swiftmailer-bundle/Resources/views</argument>
         <argument>Swiftmailer</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/cbprovider/vendor/doctrine/doctrine-bundle/Resources/views</argument>
+        <argument>/vagrant/repositories/CBProvider/vendor/doctrine/doctrine-bundle/Resources/views</argument>
         <argument>Doctrine</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/cbprovider/src/CricketBrasil/SiteBundle/Resources/views</argument>
+        <argument>/vagrant/repositories/CBProvider/src/CricketBrasil/SiteBundle/Resources/views</argument>
         <argument>CricketBrasilSite</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/cbprovider/vendor/braincrafted/bootstrap-bundle/Braincrafted/Bundle/BootstrapBundle/Resources/views</argument>
+        <argument>/vagrant/repositories/CBProvider/vendor/braincrafted/bootstrap-bundle/Braincrafted/Bundle/BootstrapBundle/Resources/views</argument>
         <argument>BraincraftedBootstrap</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/cbprovider/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>
+        <argument>/vagrant/repositories/CBProvider/src/CricketBrasil/SearchBundle/Resources/views</argument>
+        <argument>CricketBrasilSearch</argument>
+      </call>
+      <call method="addPath">
+        <argument>/vagrant/repositories/CBProvider/vendor/friendsofsymfony/elastica-bundle/Resources/views</argument>
+        <argument>FOSElastica</argument>
+      </call>
+      <call method="addPath">
+        <argument>/vagrant/repositories/CBProvider/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>
         <argument>Debug</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/cbprovider/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views</argument>
+        <argument>/vagrant/repositories/CBProvider/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views</argument>
         <argument>WebProfiler</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/cbprovider/vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/views</argument>
+        <argument>/vagrant/repositories/CBProvider/vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/views</argument>
         <argument>SensioDistribution</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/cbprovider/app/Resources/views</argument>
+        <argument>/vagrant/repositories/CBProvider/app/Resources/views</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/cbprovider/vendor/symfony/symfony/src/Symfony/Bridge/Twig/Resources/views/Form</argument>
+        <argument>/vagrant/repositories/CBProvider/vendor/symfony/symfony/src/Symfony/Bridge/Twig/Resources/views/Form</argument>
       </call>
     </service>
     <service id="logger" class="Symfony\Bridge\Monolog\Logger">
@@ -3098,6 +3409,9 @@
     <service id="doctrine.orm.default_metadata_cache" alias="doctrine_cache.providers.doctrine.orm.default_metadata_cache"/>
     <service id="doctrine.orm.default_result_cache" alias="doctrine_cache.providers.doctrine.orm.default_result_cache"/>
     <service id="doctrine.orm.default_query_cache" alias="doctrine_cache.providers.doctrine.orm.default_query_cache"/>
+    <service id="fos_elastica.client" alias="fos_elastica.client.default"/>
+    <service id="fos_elastica.index" alias="fos_elastica.index.cbprovider"/>
+    <service id="fos_elastica.manager" alias="fos_elastica.manager.orm"/>
     <service id="sensio.distribution.webconfigurator" alias="sensio_distribution.webconfigurator"/>
     <service id="console.command.sensiolabs_security_command_securitycheckercommand" alias="sensio_distribution.security_checker.command"/>
   </services>

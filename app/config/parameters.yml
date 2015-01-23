@@ -12,3 +12,5 @@ parameters:
     mailer_password: null
     locale: pt
     secret: ThisTokenIsNotSoSecretChangeIt
+    elastic_host: 192.168.1.17
+    elastic_port: 9200

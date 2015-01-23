@@ -1,0 +1,30 @@
+# app/config/foq_elastica.yml
+
+fos_elastica:
+    clients:
+        default: { host: 192.168.1.17, port: 9200 }
+    indexes:
+        cbprovider:
+            client: default
+            types:
+                provider:
+                    mappings:
+                        id:
+                            type: integer
+                        created_at:
+                            type: date
+                        updated_at:
+                            type: date
+                        uid: ~
+                        name: ~
+                        email: ~
+                        phone: ~
+                        address: ~
+                    persistence:
+                        driver: orm
+                        model: CricketBrasil\SiteBundle\Entity\Provider
+                        repository: CricketBrasil\SearchBundle\Entity\SearchRepository\ProviderRepository
+                        finder: ~
+                        provider: ~
+                        listener: ~
+            

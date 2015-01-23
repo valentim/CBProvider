@@ -60,7 +60,7 @@ class JobController extends Controller
 
             $em = $this->getDoctrine()->getManager();
 
-            if ($data['provider']) {
+            if (isset($data['provider'])) {
                 foreach ($data['provider'] as $providerId) {
                     $provider = $em->getRepository('CricketBrasilSiteBundle:Provider')->findOneById($providerId);
                     $provider->addJob($entity);
